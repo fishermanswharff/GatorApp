@@ -7,11 +7,7 @@
  * # MainCtrl
  * Controller of the gatorApp
  */
-angular.module('gatorApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+angular.module('MainController')
+  .controller('MainCtrl', ['$scope','$http',function($scope,$http) {
+    
+}]);

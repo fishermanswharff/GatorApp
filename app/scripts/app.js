@@ -8,8 +8,7 @@
  *
  * Main module of the application.
  */
-angular
-  .module('gatorApp', [
+angular.module('gatorApp', [
     'ngAnimate',
     'ngAria',
     'ngCookies',
@@ -19,6 +18,6 @@ angular
     'ngSanitize',
     'ngTouch',
     'MainController',
-    'MainDirective'
+    'MainDirective',
   ]);
   
