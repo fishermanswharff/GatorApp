@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name gatorAppApp
+ * @name gatorApp
  * @description
- * # gatorAppApp
+ * # gatorApp
  *
  * Main module of the application.
  */
 angular
-  .module('gatorAppApp', [
+  .module('gatorApp', [
     'ngAnimate',
     'ngAria',
     'ngCookies',

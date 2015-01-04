@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name gatorAppApp.controller:AboutCtrl
+ * @name gatorApp.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the gatorAppApp
+ * Controller of the gatorApp
  */
-angular.module('gatorAppApp')
+angular.module('gatorApp')
   .controller('AboutCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',

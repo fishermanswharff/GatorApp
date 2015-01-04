@@ -1,0 +1,35 @@
+{
+  "build_systems": 
+  [
+    {
+      "cmd":
+      [
+        "ant",
+        "push",
+        "-f",
+        "${project_path:${folder}}/build.xml"
+      ],
+      "name": "Gator2 WebApp Push Origin",
+      "selector": "source.java"
+    }
+  ],
+  "folders":
+  [
+    {
+      "name": "Gator Webapp",
+      "path": "/Users/jason/Documents/WebDevImmersive/Projects/Gator2/gatorApp"
+    },
+    {
+      "name": "REFERENCE: Gator 1.0",
+      "path": "/Users/jason/Documents/WebDevImmersive/Projects/Gator"
+    },
+    {
+      "name": "REFERENCE: JW Portfolio Front End",
+      "path": "/Users/jason/Documents/JW-Website/Portfolio/jwweb"
+    },
+    {
+      "name": "REFERENCE: ngSandbox",
+      "path": "/Users/jason/Documents/WebDevImmersive/Projects/ngSandbox"
+    }
+  ]
+}
