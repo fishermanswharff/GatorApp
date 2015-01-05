@@ -8,9 +8,13 @@
  * Controller of the gatorApp
  */
 angular.module('MainController')
-  .controller('MainCtrl', ['$scope','$http','trace',function($scope,$http,trace) {
+  .controller('MainCtrl', ['$scope','$http','trace','AuthFactory',function($scope,$http,trace,AuthFactory) {
     
-    $scope.sign_into_twitter = function(){
+    $scope.signIntoTwitter = function(){
       trace('signing into twitter');
+    };
+
+    $scope.isLoggedIn = function(){
+      return AuthFactory.isAuthenticated();
     };
 }]);

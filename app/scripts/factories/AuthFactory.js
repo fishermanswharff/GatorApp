@@ -11,13 +11,13 @@ angular.module('gatorApp').factory('AuthFactory',['$http','$window','ServerUrl',
 
   var logout = function(){
     return $http.get(ServerUrl + 'logout').success(function(response){
-      $window.sessionStorage.removeItem('jw-token');
+      $window.sessionStorage.removeItem('gator-token');
       trace(response);
     });
   };
 
   var isAuthenticated = function(){
-    return !!$window.sessionStorage.getItem('jw-token');
+    return !!$window.sessionStorage.getItem('gator-token');
   };
 
   var clearStorage = function(){
@@ -35,9 +35,9 @@ angular.module('gatorApp').factory('AuthFactory',['$http','$window','ServerUrl',
 
   var storeSession = function(response){
     $.each(response,function(key,value){
-      $window.sessionStorage.setItem('jw-'+key,value);
+      $window.sessionStorage.setItem('gator-'+key,value);
     });
-    $http.defaults.headers.common.Authorization = 'Token token=' + $window.sessionStorage.getItem('jw-token');
+    $http.defaults.headers.common.Authorization = 'Token token=' + $window.sessionStorage.getItem('gator-token');
   };
 
   return {

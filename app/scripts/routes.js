@@ -10,6 +10,10 @@ angular.module('gatorApp')
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/login',{
+        templateUrl: 'views/login.html',
+        controller: 'AuthController'
+      })
       .otherwise({
         redirectTo: '/'
       });
