@@ -3,7 +3,8 @@
     <li ng-class="{ active: isActive('/')}"><a ng-href="#/">Home</a></li>
     <li ng-class="{ active: isActive('/about')}"><a ng-href="#/about">About</a></li>
     <li ng-class="{ active: isActive('/contact')}"><a ng-href="#/">Contact</a></li>
-    <li class="nav-left text-only"><a class="logout" href="javascript:void(0)" ng-click="logout()" ng-if="isLoggedIn()">Logout</a></li>
+    <li ng-if="isLoggedIn()" class="nav-left text-only"><a class="logout" href="javascript:void(0)" ng-click="logout()" >Logout</a></li>
+    <li ng-if="!isLoggedIn()" ng-class="{ active: isActive('/login')}"><a class="login" ng-href="#/login" >Login</a></li>
   </ul>
   <h3 class="text-muted">gator</h3>
 </nav>

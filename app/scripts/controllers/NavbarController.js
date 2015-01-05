@@ -8,7 +8,7 @@ angular.module('MainController').controller('NavbarController',['$scope','$locat
   };
   $scope.logout = function(){
     AuthFactory.logout().success(function(){
-      $location.paht('/login');
+      $location.path('/');
       AuthFactory.clearStorage();
     });
   };
