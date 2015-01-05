@@ -15,7 +15,7 @@ angular.module('MainController')
     $scope.signIntoTwitter = function(){
       $http.get(ServerUrl + 'users/auth/twitter').success(function(response){
         $scope.userToken = $window.sessionStorage.getItem('gator-token');
-        $scope.tokenParams = response.token + '&' + response.secret + '&' + $scope.userToken;
+        $scope.tokenParams = response.token + '&' + response.secret;
         $scope.authenticateTwitter($scope.tokenParams);
       });
     };

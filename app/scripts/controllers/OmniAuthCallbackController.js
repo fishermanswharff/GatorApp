@@ -6,5 +6,5 @@ angular.module('MainController')
     '$routeParams',
     'trace',
     function($scope,$location,$routeParams,trace){
-      trace($location.path(), $routeParams);
+      trace($location.path(), $routeParams, $location.absUrl());
     }]);
