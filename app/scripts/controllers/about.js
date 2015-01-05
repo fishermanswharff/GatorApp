@@ -7,6 +7,6 @@
  * # AboutCtrl
  * Controller of the gatorApp
  */
-angular.module('gatorApp').controller('AboutCtrl',['$scope', function($scope) {
- 
+angular.module('gatorApp').controller('AboutCtrl',['$scope','trace', function($scope,trace) {
+  trace($scope);
 }]);
