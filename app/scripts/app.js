@@ -21,6 +21,7 @@ angular.module('gatorApp', [
     'MainDirective',
   ]).run(function($rootScope,$location,$http,$window,AuthFactory){
     $rootScope.$on('$routeChangeStart', function(event,next){
+      console.log(event,next);
       if(AuthFactory.isAuthenticated()) {
         $http.defaults.headers.common.Authorization = 'Token token=' + $window.sessionStorage.getItem('jw-token');
       }

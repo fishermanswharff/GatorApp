@@ -14,6 +14,10 @@ angular.module('gatorApp')
         templateUrl: 'views/login.html',
         controller: 'AuthController'
       })
+      .when('/users/auth/twitter/callback',{
+        templateUrl: 'views/callback.html',
+        controller: 'OmniAuthCallbackController'
+      })
       .otherwise({
         redirectTo: '/'
       });
