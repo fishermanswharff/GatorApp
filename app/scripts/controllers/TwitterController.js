@@ -18,5 +18,5 @@ function twitterController(trace,ServerUrl,$http,$location,$window){
     });
   };
 
-  // vm.getTimeline();
+  vm.getTimeline();
 }
