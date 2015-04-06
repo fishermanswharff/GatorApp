@@ -1,0 +1,5 @@
+<h1>Twitter User</h1>
+<div ng-repeat="tweet in twitterController.tweets">
+  <p>{{tweet.user.screen_name}} | created at: {{tweet.created_at}}</p>
+  <div ng-bind-html="tweet.text"></div>
+</div>

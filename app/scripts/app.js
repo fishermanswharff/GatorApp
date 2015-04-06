@@ -23,8 +23,8 @@ angular.module('gatorApp', [
     $rootScope.$on('$routeChangeStart', function(event,next){
       console.log(event,next);
       if(AuthFactory.isAuthenticated()) {
-        $http.defaults.headers.common.Authorization = 'Token token=' + $window.sessionStorage.getItem('gator-token');
+        var data = JSON.parse($window.localStorage.getItem('gator-user'));
+        $http.defaults.headers.common.Authorization = 'Token token=' + data.token;
       }
     });
   });
-  

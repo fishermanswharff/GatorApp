@@ -10,13 +10,12 @@ angular.module('gatorApp')
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
-      .when('/login',{
+      .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'AuthController'
       })
-      .when('/users/auth/twitter/callback',{
-        templateUrl: 'views/callback.html',
-        controller: 'OmniAuthCallbackController'
+      .when('/social', {
+        templateUrl: 'views/social.html'
       })
       .otherwise({
         redirectTo: '/'

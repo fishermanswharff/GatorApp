@@ -1,43 +1,43 @@
-/*global $:false */
 'use strict';
 angular.module('gatorApp').factory('AuthFactory',['$http','$window','ServerUrl','trace',function($http,$window,ServerUrl,trace){
 
   var login = function(credentials){
     trace(credentials);
-    return $http.post(ServerUrl + 'login',credentials).success(function(response){
-      storeSession(response);
+    return $http.post(ServerUrl + '/login',credentials).success(function(response){
+      _storeSession(response);
     });
   };
 
   var logout = function(){
-    return $http.get(ServerUrl + 'logout').success(function(response){
-      $window.sessionStorage.removeItem('gator-token');
+    return $http.get(ServerUrl + '/logout').success(function(response){
+      $window.localStorage.removeItem('gator-user');
       trace(response);
     });
   };
 
   var isAuthenticated = function(){
-    return !!$window.sessionStorage.getItem('gator-token');
+    var data = JSON.parse($window.localStorage.getItem('gator-user'));
+    if(data) return !!data.token;
+    return false;
+    // return !!$window.localStorage.getItem('gator-token');
   };
 
   var clearStorage = function(){
-    trace($window.sessionStorage);
-    return !!$window.sessionStorage.clear();
+    trace($window.localStorage);
+    return !!$window.localStorage.clear();
   };
 
   var postNewUser = function(user){
-    return $http.post(ServerUrl + 'users',{user: user}).success(function(response){
-      storeSession(response);
+    return $http.post(ServerUrl + '/users',{user: user}).success(function(response){
+      _storeSession(response);
     }).error(function(data, status, headers, config){
       trace(data,status,headers,config,'you are so stupid, you are doing it wrong');
     });
   };
 
-  var storeSession = function(response){
-    $.each(response,function(key,value){
-      $window.sessionStorage.setItem('gator-'+key,value);
-    });
-    $http.defaults.headers.common.Authorization = 'Token token=' + $window.sessionStorage.getItem('gator-token');
+  var _storeSession = function(data){
+    $window.localStorage.setItem('gator-user', JSON.stringify(data));
+    $http.defaults.headers.common.Authorization = 'Token token=' + data.token;
   };
 
   return {
