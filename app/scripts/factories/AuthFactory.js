@@ -11,6 +11,8 @@ angular.module('gatorApp').factory('AuthFactory',['$http','$window','ServerUrl',
   var logout = function(){
     return $http.get(ServerUrl + '/logout').success(function(response){
       $window.localStorage.removeItem('gator-user');
+      $window.localStorage.removeItem('gator-auth');
+      $location.path('/')
       trace(response);
     });
   };
