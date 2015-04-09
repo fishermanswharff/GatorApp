@@ -20,6 +20,7 @@ angular.module('MainController')
           $scope.authenticateTwitter($scope.tokenParams);
         } else if(status === 203) {
           trace('already authenticated with twitter', data);
+          $window.localStorage.setItem('gator-auth',JSON.stringify(data));
           $location.path('/social');
         }
       }).error(function(data, status, headers, config){

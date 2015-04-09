@@ -20,6 +20,8 @@ angular.module('gatorApp', [
     'MainController',
     'MainDirective',
   ]).run(function($rootScope,$location,$http,$window,AuthFactory){
+    var params = $location.search();
+    if(params.provider) $window.localStorage.setItem('gator-auth',JSON.stringify(params));
     $rootScope.$on('$routeChangeStart', function(event,next){
       console.log(event,next);
       if(AuthFactory.isAuthenticated()) {

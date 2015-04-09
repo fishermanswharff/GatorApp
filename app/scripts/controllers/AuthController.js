@@ -8,7 +8,7 @@ angular.module('MainController').controller('AuthController',['$scope','$http','
       trace(response);
     });
   };
-  
+
   $scope.newUser = function(){
     $scope.createUser = true;
   };
