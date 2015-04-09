@@ -1,5 +1,5 @@
 'use strict';
-angular.module('gatorApp').factory('AuthFactory',['$http','$window','ServerUrl','trace',function($http,$window,ServerUrl,trace){
+angular.module('gatorApp').factory('AuthFactory',['$http','$window','$location','ServerUrl','trace',function($http,$window,$location,ServerUrl,trace){
 
   var login = function(credentials){
     trace(credentials);
@@ -12,7 +12,7 @@ angular.module('gatorApp').factory('AuthFactory',['$http','$window','ServerUrl',
     return $http.get(ServerUrl + '/logout').success(function(response){
       $window.localStorage.removeItem('gator-user');
       $window.localStorage.removeItem('gator-auth');
-      $location.path('/')
+      $location.path('/');
       trace(response);
     });
   };
