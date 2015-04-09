@@ -42,11 +42,18 @@ angular.module('gatorApp').factory('AuthFactory',['$http','$window','$location',
     $http.defaults.headers.common.Authorization = 'Token token=' + data.token;
   };
 
+  var hasOAuth = function(){
+    var data = JSON.parse($window.localStorage.getItem('gator-auth'));
+    if(data) return !!data;
+    return false;
+  };
+
   return {
     login: login,
     logout: logout,
     isAuthenticated: isAuthenticated,
     clearStorage: clearStorage,
-    postNewUser: postNewUser
+    postNewUser: postNewUser,
+    hasOAuth: hasOAuth
   };
 }]);

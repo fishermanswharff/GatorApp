@@ -6,6 +6,9 @@ angular.module('MainController').controller('NavbarController',['$scope','$locat
   $scope.isLoggedIn = function(){
     return AuthFactory.isAuthenticated();
   };
+  $scope.hasAuth = function(){
+    return AuthFactory.hasOAuth();
+  };
   $scope.logout = function(){
     AuthFactory.logout().success(function(){
       $location.path('/');
