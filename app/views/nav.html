@@ -1,16 +1,18 @@
 <nav ng-controller="NavbarController">
-  <ul class="nav nav-pills pull-right">
+  <ul class="nav">
     <li><a class="brand">Gator</a></li>
     <li ng-class="{ active: isActive('/')}"><a ng-href="#/">Home</a></li>
     <li ng-class="{ active: isActive('/about')}"><a ng-href="#/about">About</a></li>
     <li ng-class="{ active: isActive('/contact')}"><a ng-href="#/">Contact</a></li>
     <li ng-class="{ active: isActive('/social')}"><a ng-href="#/social">Social</a></li>
-    <li>
-      <a>Account</a>
+    <li ng-show="isLoggedIn()" class="dropdown pull-right">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">Account</a>
       <ul>
-        <li ng-if="isLoggedIn()" class="nav-left text-only"><a class="logout" href="javascript:void(0)" ng-click="logout()" >Logout</a></li>
+        <li class="nav-left text-only"><a href="javascript:void(0)">{{user.username}}: {{user.role}}</a></li>
+        <li class="nav-left text-only"><a href="javascript:void(0)">{{user.email}}</a></li>
+        <li class="nav-left text-only"><a class="logout" href="javascript:void(0)" ng-click="logout()">Logout</a></li>
       </ul>
     </li>
-    <li ng-if="!isLoggedIn()" ng-class="{ active: isActive('/login')}"><a class="login" ng-href="#/login" >Login</a></li>
+    <li ng-hide="isLoggedIn()" ng-class="{ active: isActive('/login')}"><a class="login" ng-href="#/login" >Login</a></li>
   </ul>
 </nav>

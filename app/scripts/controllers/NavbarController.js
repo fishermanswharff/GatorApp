@@ -1,5 +1,8 @@
 'use strict';
 angular.module('MainController').controller('NavbarController',['$scope','$location','AuthFactory','trace',function($scope,$location,AuthFactory,trace){
+
+  $scope.user = AuthFactory.getUser();
+
   $scope.isActive = function(viewLocation){
     return viewLocation === $location.path();
   };
@@ -15,5 +18,6 @@ angular.module('MainController').controller('NavbarController',['$scope','$locat
       AuthFactory.clearStorage();
     });
   };
+
   trace();
 }]);

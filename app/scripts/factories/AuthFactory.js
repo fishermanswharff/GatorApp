@@ -48,12 +48,17 @@ angular.module('gatorApp').factory('AuthFactory',['$http','$window','$location',
     return false;
   };
 
+  var getUser = function(){
+    return JSON.parse($window.localStorage.getItem('gator-user'));
+  };
+
   return {
     login: login,
     logout: logout,
     isAuthenticated: isAuthenticated,
     clearStorage: clearStorage,
     postNewUser: postNewUser,
-    hasOAuth: hasOAuth
+    hasOAuth: hasOAuth,
+    getUser: getUser
   };
 }]);

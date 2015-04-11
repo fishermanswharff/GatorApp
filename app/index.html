@@ -23,7 +23,8 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <ng-include src="'views/nav.html'"></ng-include>
+    <!-- <ng-include src="'views/nav.html'"></ng-include> -->
+    <navbar></navbar>
     <ng-view></ng-view>
     <ng-include src="'views/footer.html'"></ng-include>
     <section id="global-container">
@@ -83,6 +84,7 @@
     <script src="scripts/controllers/TwitterController.js"></script>
     <!-- directives -->
     <script src="scripts/directives/TwitterDirective.js"></script>
+    <script src="scripts/directives/NavbarDirective.js"></script>
     <!-- endbuild -->
   </body>
 </html>
